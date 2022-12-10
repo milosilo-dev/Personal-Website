@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src=
+    "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <script src="{{url_for('static', filename='script.js')}}"> 
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&family=VT323&display=swap" rel="stylesheet">
+</head>
+<style> @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&family=VT323&display=swap'); </style>
+<style>
+    body{
+        background-color: rgb(34, 33, 33);
+    }
+    #screen{
+        position: relative;
+        background-color: green;
+        width: 1000px;
+        height: 800px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        margin-left: 400px;
+    }
+    #scan, #bezel{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top:0;
+        left:0;
+        pointer-events: none;
+    }
+    #scan{
+        opacity: 80%;
+    }
+    .noselect {
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently */
+    }
+    #content{
+        font-family: VT323;
+        font-size: 25px;
+        color:rgb(153, 255, 0);
+        padding: 50px;
+        text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+        word-break: keep-all; 
+        white-space: normal;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+    #button{
+        background-color: rgb(0, 255, 0);
+        border: none;
+        border-radius: 5px;
+        color: rgb(1, 80, 12);
+    }
+    .terminal-text{
+        border: hidden;
+        background-color: green;
+        font-family: VT323;
+        font-size: 25px;
+        text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+        color:rgb(153, 255, 0);
+        outline: none;
+    }
+    .copyright{
+        color: white;
+        font-family: sans-serif;
+    }
+</style>
+<body>
+    <div id="screen">
+        <img src="{{url_for('static', filename='scanlines.png')}}" id="scan" class="noselect">
+        <img src="{{url_for('static', filename='bezel.png')}}" id="bezel" class="noselect">
+        <div id="content">
+            <h1>The Secret Dev</h1>
+            <p>Welcome to my main website were I display all my projects! (Note: type "help" for a list of commands)</p>
+            <p id="terminal-content"></p>
+            <p>Guest@TheSecretDev:/$<input class="terminal-text" type="text" name="user" value=""></p>
+        </div>
+    </div>
+    <p class="copyright">©TheSecretDev</p>
+</body>
+</html>
