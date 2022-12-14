@@ -27,7 +27,9 @@ function checkFunctions(y){
         projectslist`;
     }
     if (x[0] == "projects" || x[0] == "project"){
-        window.location.href = window.location.href + "projects/" + x[1];
+        if (loadFile("/projects/").includes(x[1]) == true){
+            window.location.href = window.location.href + "projects/" + x[1];
+        }
     }
     if (x[0] == "projectlist"){
         return loadFile("/projects/");

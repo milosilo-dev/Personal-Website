@@ -10,7 +10,7 @@ def home():
 @app.route("/projects/")
 def project():
     x = ""
-    for i in os.listdir("C:\\Users\\Miles Hansell\\Documents\\Python\\Personal Website\\flask\\templates\\projects\\"):
+    for i in os.listdir( os.getcwd() + "\\templates\\projects\\"):
         list = i.split(".html")
         x = x + """
         """ + list[0]
