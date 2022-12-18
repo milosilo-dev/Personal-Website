@@ -23,8 +23,8 @@ function checkFunctions(y){
         return `Commands:
         help,
         whoareu,
-        projects(project),
-        projectslist`;
+        project project,
+        projectlist`;
     }
     if (x[0] == "projects" || x[0] == "project"){
         if (loadFile("/projects/").includes(x[1]) == true){
@@ -45,6 +45,7 @@ $(document).ready(function() {
     function displayHandeler() {
         var x = $("input:text").val();
         document.getElementById("terminal-content").innerHTML = document.getElementById("terminal-content").innerHTML + "<p id='" + index + "'>"+ "Guest@TheSecretDev:/$" + x + "<p id='r"+ index +"'>" + checkFunctions(x) + "</p>" + "</p>";
+        document.getElementById("terminal-text").innerHTML = "" 
         onScreen.push(index)
         var divHeight = document.getElementById('content').offsetHeight;
         if (divHeight >= 816){
